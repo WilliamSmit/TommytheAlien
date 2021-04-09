@@ -1,0 +1,11 @@
+
+command line to write from index.pug to index.html
+pug -w ./ -o ./html -P 
+
+pug image format
+img(src=img, height= 300, width= 300)
+
+ask bridget to help with random snack selection
+    -issue is regarding pulling the correct value from a set() instead of an array
+
+    
