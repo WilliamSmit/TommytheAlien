@@ -20,11 +20,11 @@ const messages = {
 };
 
 const backpacktexts = {
-    backpackContentsSubtext: `You're backpack: `
+    backpackContentsSubtext: `Your backpack: `
 };
 
 const achievementtexts = {
-    achievementsContentsSubtext: `You're achievements: `
+    achievementsContentsSubtext: `Your achievements: `
 };
 
 const texts = {
@@ -71,7 +71,7 @@ const texts = {
     alreadyMetText: `Tommy is still waiting patiently! What do you want to do?`,
     alreadyWaterText: `Forget about looking for some water, you found a UFO's crash site!`,
     bestFriendsText: `Tommy and you hangout all night until the sun starts to come up and it's time
-                    to go your seperate ways. You do your new secret handshake before you walk back
+                    to go your separate ways. You do your new secret handshake before you walk back
                     towards your campsite.`,
     stillHungryText: `Tommy grabs something from your bag, then remarks "thanks for the snack! Want
                     to be friends?`,
