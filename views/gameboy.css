@@ -71,6 +71,7 @@ body {
             top: 12%;
             left: 50%;
             transform: translate(-50%, -50%);
+            opacity: .9;
         }
         .message {
             font-family: 'Press Start 2P', cursive;
