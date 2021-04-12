@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap);
+
+body {
+    background-color: #d1d1d1;
+}
+.gameboyBody {
+    height: 600px;
+    width: 600px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #f0b000;
+    position: relative;
+    margin: auto;
+}
+    .gameboyScreen1 {
+        height: 500px;
+        width: 550px;
+        background-color:black;
+        border-radius: 20px;
+        border-bottom-left-radius:500px 80px;
+        border-bottom-right-radius:500px 80px;
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+        .gameboyScreen2 {
+            height:300px;
+            width: 380px;
+            background-color:#8eb8bd;
+            border: 3px solid #5a7679;
+            border-radius: 3px;
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+            .gameboyLogo {
+                height: 50%;
+                width: 75%;
+                position: absolute;
+                top: 118%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: .7;
+            }
+            .nintendoLogo {
+                height: 8%;
+                width: 50%;
+                position: absolute;
+                top: 157%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: .3;
+            }
+            .powerIndicator {
+                height: 10%;
+                width: 20%;
+                position:absolute;
+                top: 25%;
+                left: -12%;
+                transform: translate(-50%, -50%);
+                opacity: .7;
+            }
+        .bannerImage {
+            height: 20%;
+            width: 98%;
+            position: absolute;
+            top: 12%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .message {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            margin-top: 40px;
+            text-align: center;
+            opacity: .8;
+        }
+        .loginForm {
+            font-family: 'Press Start 2P', cursive;
+            width: 200px;
+            height: 25px;
+            position: absolute;
+            top: 48%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            border: 4px solid black;
+            border-radius: 2px;
+            opacity: .8;
+        }
+        .startButton {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 25px;
+            position: absolute;
+            top: 48%;
+            left: 78%;
+            transform: translate(-50%, -50%);
+            border: 4px solid black;
+            border-radius: 2px;
+            opacity: .8;
+        }
+        .errorText {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: rgb(191, 0, 0);
+            margin-top: 75px;
+            text-align: center;
+            opacity: .8;
+            animation: blinker 1s infinite;
+        }
+            @keyframes blinker {
+                20% {
+                opacity: 0;
+                }
+            }
+        .text {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            text-align: left;
+            margin-left: 20px;
+            margin-right: 10px;
+        }
+        .subText {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 8px;
+            text-align: left;
+            margin-left: 12px;
+            opacity: .9;
+        }
+        .buttonLayout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            row-gap: 10px;
+            margin-left: 28px;
+            
+        }
+            .buttonStyle {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 8px;
+                opacity: .8;
+                border: 3px solid black;
+                border-radius: 2px;
+                width: 150px;
+                height: 25px;
+            }

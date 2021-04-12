@@ -1,13 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <style>
+body {
+  background-color: #d1d1d1;
+}
+
+.cssTest {
+  height: 650px;
+  width: 550px;
+  max-width: 100%;
+  font-size: 14px;
+  background-color: #a5e8d7;
+  border: 3px solid black;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.bannerImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  font-family: 'Courier New', Courier, monospace;
+  border: 3px solid black;
+  border-radius: 3px;
+}
+    .loginForm {
+      height: 26px;
+      width: 250px;
+      font-size: 20px;
+      padding-bottom: 7px;
+      text-align: middle;
+    }
+    .startButton {
+      height: 40px;
+      vertical-align: middle;
+      font-weight: bold;
+      color: white;
+      background-color: #456075;
+    }
+    .options {
+      background-color: #456075;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      height: 50px;
+      width: 200px;
+    }
+    .buttonLayout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-column-gap: 10px;
+      grid-row-gap: 20px;
+      margin-left: 47px;
+      margin-bottom: 47px;
+      position:absolute;
+      bottom: 275px;
+    }
+
+.errorText {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.iconImage {
+  height: 75px;
+  width: 75px;
+}
+
+.message {
+  font-size: 22px;
+}
+
+.text {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.subText {
+  color: purple;
+  font-size: 15px;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+    </style>
+  </head>
   <title>Tommy the Alien</title>
   <body>
-    <h1> <img src="https://i.imgur.com/TchHfSw.jpg"></h1>
-    <h2><img></h2>
-    <h3></h3>
-    <h4></h4>
-    <p></p>
-    <p></p>
+    <div class="cssTest">
+      <h1> <img class="bannerImage" src="https://i.imgur.com/TchHfSw.jpg"></h1>
+      <h2 class="message"></h2>
+      <div>
+      </div>
+      <h3 class="text"></h3>
+      <h4 class="subText"></h4>
+      <h5 class="subText"></h5>
+    </div>
   </body>
 </html>

@@ -1,6 +1,6 @@
 const messages = {
-    userNameError: 'Please enter a username',
-    startMessage: 'Tommy the Alien',
+    startMessage: 'enter your name and click start to begin!',
+    userNameError: 'please enter a username',
     makeFireMessage: 'Making a fire...',
     lookForWaterMessage: 'Looking for water...',
     chopTreeMessage: 'Chopping down a tree...',
@@ -19,13 +19,15 @@ const messages = {
     hangingOutMessage: `Hanging out with Tommy...`
 };
 
-const subtexts = {
-    backpackContentsSubtext: `You're backpack: `,
+const backpacktexts = {
+    backpackContentsSubtext: `You're backpack: `
+};
+
+const achievementtexts = {
     achievementsContentsSubtext: `You're achievements: `
 };
 
 const texts = {
-    startText: 'Enter your name and click start to begin!',
     basecampText: 'The sun is getting low in the sky, what do you want to do?',
     noWoodText: "You don't have any wood! Where do you want to get some?",
     yesWoodText: `You've made a roaring fire back at basecamp...
@@ -81,4 +83,5 @@ const texts = {
 
 exports.messages = messages;
 exports.texts = texts;
-exports.subtexts = subtexts;
+exports.backpacktexts = backpacktexts;
+exports.achievementtexts = achievementtexts;
