@@ -102,8 +102,6 @@ function handling() {
     });
     app.get("/gameOver", function (request, response) {
         console.log('GAME OVER');
-        achievements.clear();
-        backpack.clear();
         response.render("index", {
             message: messages.gameOverMessage,
             text: whyDead,
@@ -519,7 +517,7 @@ function getRequests() {
         achievements.add(' make_a_friend');
         response.render("index", {
             link: "/directory",
-            message: messages.thanksForPlayingMessage,
+            message: messages.thankYouMessage,
             text: texts.bestFriendsText,
             achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
             backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),

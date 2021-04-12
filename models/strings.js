@@ -16,7 +16,8 @@ const messages = {
     fixingTheShipMessage: `Fixing the ship...`,
     offerFoodMessage: `Offering food...`,
     noFoodMessage: `No food...`,
-    hangingOutMessage: `Hanging out with Tommy...`
+    hangingOutMessage: `Hanging out with Tommy...`,
+    thankYouMessage: `Thanks for playing!!!`
 };
 
 const backpacktexts = {
