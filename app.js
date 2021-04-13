@@ -23,6 +23,7 @@ function handling() {
         whyDead = [];
         achievements.clear();
         backpack.clear();
+        stomach = [];
         response.render("index", {
             message: messages.startMessage,
             link: "/introduction",
@@ -136,8 +137,12 @@ function handling() {
         else if (playerResponse === choices.returnToCamp) {
             response.redirect("/basecamp");
         }
-        else if (playerResponse === choices.makeMoreFood) {
-            response.redirect("/makeFood");
+        else if (playerResponse === choices.makeMoreFood && stomach.length <= 6) {
+            response.redirect("/makeFood")
+        }
+        else if (playerResponse === choices.makeMoreFood && stomach.length > 6) {
+            whyDead.push(`Who do you think you are, Abdu? You've eaten too much and died from the complications...`)
+            response.redirect("/gameOver")
         }
         else if (playerResponse === choices.eatHotdog) {
             response.redirect("/eatHotdog");
@@ -149,13 +154,14 @@ function handling() {
             response.redirect("/eatBerries");
         }
         else if (playerResponse === choices.goToSleep) {
-            whyDead.push('You were eaten by a bear in your sleep');
+            whyDead.push('You were eaten by a bear in your sleep...');
             response.redirect("/gameOver");
         }
         else if (playerResponse === choices.playAgain) {
             whyDead = [];
             achievements.clear();
             backpack.clear();
+            stomach = [];
             response.redirect("/basecamp");
         }
         else if (playerResponse === choices.investigateGlow) {
@@ -165,7 +171,7 @@ function handling() {
             response.redirect("/lookInside");
         }
         else if (playerResponse === choices.attackTheAlien) {
-            whyDead.push(`Turns out Tommy knows karate... turns out you don't`);
+            whyDead.push(`Turns out Tommy knows karate... turns out you don't...`);
             response.redirect("/gameOver");
         }
         else if (playerResponse === choices.helpFixShip) {
@@ -317,6 +323,7 @@ function getRequests() {
     });
     app.get("/eatHotdog", function (request, response) {
         if (achievements.has(' fire')) {
+            stomach.push(' hotdog');
             backpack.add(' hotdog');
             response.render("index", {
                 link: "/directory",
@@ -343,6 +350,7 @@ function getRequests() {
     });
     app.get("/eatGranola", function (request, response) {
         backpack.add(' granola_bar');
+        stomach.push(' granola_bar');
         response.render("index", {
             link: "/directory",
             message: messages.makeFoodMessage,
@@ -354,6 +362,7 @@ function getRequests() {
     });
     app.get("/eatBerries", function (request, response) {
         backpack.add(' berries');
+        stomach.push(' berries');
         response.render("index", {
             link: "/directory",
             message: messages.makeFoodMessage,
@@ -530,6 +539,7 @@ function getRequests() {
 //variables
 var whyDead = [];
 let userName = undefined;
+let stomach = []
 
 //app (in functions)
 handling();
