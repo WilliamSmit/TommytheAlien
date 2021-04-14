@@ -1,6 +1,6 @@
 const messages = {
     startMessage: 'enter your name and click start to begin!',
-    userNameError: 'please enter a username',
+    userNameError: 'please enter valid a username',
     makeFireMessage: 'Making a fire...',
     lookForWaterMessage: 'Looking for water...',
     chopTreeMessage: 'Chopping down a tree...',

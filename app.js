@@ -35,7 +35,7 @@ function handling() {
     });
     app.post("/introduction", function (request, response) {
         userName = request.body.userName;
-        if (userName === undefined || userName === '') {
+        if (userName === undefined || userName === '' || userName.length > 14) {
             var query = querystring.stringify({ errorMessage: true });
             response.redirect("/?" + query);
         }
