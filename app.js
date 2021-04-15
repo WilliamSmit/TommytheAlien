@@ -53,7 +53,7 @@ function handling() {
                 option2: choices.nvm
             })
         else if (!existingPlayers.has(userName))
-            players.createPlayer(userName) +
+            players.createPlayer(userName, 1) +
             response.render("index", {
                 message: messages.welcomeMessage + userName,
                 text: texts.welcomeText,
