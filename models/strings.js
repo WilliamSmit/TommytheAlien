@@ -5,7 +5,7 @@ const messages = {
     lookForWaterMessage: 'Looking for water...',
     chopTreeMessage: 'Chopping down a tree...',
     lookingForWoodMessage: `Looking for wood...`,
-    backAtCampMessage: `You're back at basecamp!`,
+    basecampMessage: `You're at basecamp `,
     lookingForWoodMessage: `Looking for wood...`,
     makeFoodMessage: `Making some food...`,
     makeShelterMessage: `Making shelter...`,
@@ -17,7 +17,9 @@ const messages = {
     offerFoodMessage: `Offering food...`,
     noFoodMessage: `No food...`,
     hangingOutMessage: `Hanging out with Tommy...`,
-    thankYouMessage: `Thanks for playing!!!`
+    thankYouMessage: `Thanks for playing!!!`,
+    welcomeMessage: `Welcome `,
+    welcomeBackMessage: `Welcome back `
 };
 
 const backpacktexts = {
@@ -79,7 +81,9 @@ const texts = {
     stillBrokenText: `. To your surprise... he responds - "I don't know what happened. One minute I'm
                     cruising through hyperspace, and the next thing I know I'm stranded here! I was 
                     famished, thanks for the snack! Any chance you could help me fix my ship?"`,
-    fixedThanksText: `Tommy exclaimes "Thank you for fixing my ship! Want to be friends?"`
+    fixedThanksText: `Tommy exclaimes "Thank you for fixing my ship! Want to be friends?"`,
+    welcomeText: `First time, huh? Ready to play?`,
+    welcomebackText: `Good to see you again, Ready to play?`
 };
 
 exports.messages = messages;

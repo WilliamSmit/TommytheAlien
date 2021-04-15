@@ -15,15 +15,18 @@ app.use(express.urlencoded({extended: true}));
 const { messages, texts, backpacktexts, achievementtexts } = require("./models/strings");
 const { images } = require("./models/images");
 const { choices } = require("./models/choices");
-const { achievements, backpack } = require("./models/storage");
+const { achievements, backpack, existingPlayers} = require("./models/storage");
+const players = require("./models/mongoPlayers");
 
 //functions
 function handling() {
-    app.get("/", function (request, response) {
+    app.get("/", async function (request, response) {
         whyDead = [];
         achievements.clear();
         backpack.clear();
         stomach = [];
+        globalThis.allPlayers = await players.listPlayers();
+        allPlayers.forEach(_id => {existingPlayers.add((_id.userName))});
         response.render("index", {
             message: messages.startMessage,
             link: "/introduction",
@@ -33,32 +36,38 @@ function handling() {
             errorMessageText: messages.userNameError
             });
     });
-    app.post("/introduction", function (request, response) {
+
+    app.post("/introduction", async function (request, response) {
         userName = request.body.userName;
         if (userName === undefined || userName === '' || userName.length > 14) {
             var query = querystring.stringify({ errorMessage: true });
             response.redirect("/?" + query);
         }
-        else {
+        else if (existingPlayers.has(userName))
             response.render("index", {
-                message: `Welcome to basecamp ${userName}!`,
-                text: texts.basecampText,
-                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                message: messages.welcomeBackMessage + userName,
+                text: texts.welcomebackText,
                 link: "/directory",
-                image: images.basecamp,
-                fouroptions: true,
-                option1: choices.makeFire,
-                option2: choices.findWater,
-                option3: choices.makeFood,
-                option4: choices.makeShelter
-            });
-        }
+                twooptions: true,
+                option1: choices.ready,
+                option2: choices.nvm
+            })
+        else if (!existingPlayers.has(userName))
+            players.createPlayer(userName) +
+            response.render("index", {
+                message: messages.welcomeMessage + userName,
+                text: texts.welcomeText,
+                link: "/directory",
+                twooptions: true,
+                option1: choices.ready,
+                option2: choices.nvm
+            })
     });
     app.get("/basecamp", function (request, response) {
+        //console.log(existingPlayers)
         if (achievements.has(' meet_Tommy'))
             response.render("index", {
-                message: messages.backAtCampMessage,
+                message: messages.basecampMessage + userName,
                 text: texts.basecampText,
                 achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                 backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
@@ -73,7 +82,7 @@ function handling() {
             });
         else if (achievements.has(' discover_ship'))
             response.render("index", {
-                message: messages.backAtCampMessage,
+                message: messages.basecampMessage + userName,
                 text: texts.basecampText,
                 achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                 backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
@@ -88,7 +97,7 @@ function handling() {
             });
         else if (!achievements.has(' meet_Tommy') || !achievements.has('discover_ship'))
             response.render("index", {
-                message: messages.backAtCampMessage,
+                message: messages.basecampMessage + userName,
                 text: texts.basecampText,
                 achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                 backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
@@ -116,7 +125,13 @@ function handling() {
     app.post("/directory", function (request, response) {
         var playerResponse = request.body.playerChoice;
         console.log(playerResponse);
-        if (playerResponse === choices.makeFire) {
+        if (playerResponse === choices.ready) {
+            response.redirect("/basecamp")
+        }
+        else if (playerResponse === choices.nvm) {
+            response.redirect("/")
+        }
+        else if (playerResponse === choices.makeFire) {
             response.redirect("/makeFire");
         }
         else if (playerResponse === choices.findWater) {
@@ -196,7 +211,9 @@ function handling() {
         else if (playerResponse === choices.makeFriends) {
             response.redirect("/makeFriends");
         }
+        
     });
+   
 };
 function getRequests() {
     //fire chain

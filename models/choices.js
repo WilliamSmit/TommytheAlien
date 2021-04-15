@@ -21,7 +21,9 @@ const choices = {
     doSomethingElse: `Something else?`,
     goBackToShip: `Back to ship?`,
     goBackToTommy: `Back to Tommy?`,
-    runFromAlien: `Run!!!`
+    runFromAlien: `Run!!!`,
+    ready: `Ready`,
+    nvm: `Nevermind`
 };
 
 
