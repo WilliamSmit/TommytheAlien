@@ -3,6 +3,7 @@
 body {
     background-color: #d1d1d1;
 }
+/*static*/
 .gameboyBody {
     height: 600px;
     width: 600px;
@@ -73,86 +74,88 @@ body {
             transform: translate(-50%, -50%);
             opacity: .9;
         }
-        .message {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
-            margin-top: 40px;
-            margin-left: 10px;
-            text-align: center;
-            opacity: .8;
-            cursor: default;
-        }
-        .loginForm {
-            font-family: 'Press Start 2P', cursive;
-            width: 200px;
-            height: 25px;
-            position: absolute;
-            top: 48%;
-            left: 30%;
-            transform: translate(-50%, -50%);
-            border: 4px solid black;
-            border-radius: 2px;
-            opacity: .8;
-        }
-        .startButton {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 25px;
-            position: absolute;
-            top: 48%;
-            left: 78%;
-            transform: translate(-50%, -50%);
-            border: 4px solid black;
-            border-radius: 2px;
-            opacity: .8;
-            cursor: pointer;
-        }
-        .errorText {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            color: rgb(191, 0, 0);
-            margin-top: 75px;
-            text-align: center;
-            cursor: default;
-            opacity: .8;
-            animation: blinker 1s infinite;
-        }
-            @keyframes blinker {
-                20% {
-                opacity: 0;
-                }
-            }
-        .text {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 9px;
-            text-align: left;
-            margin-left: 12px;
-            margin-right: 10px;
-            cursor: default;
-        }
-        .subText {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 8px;
-            text-align: left;
-            margin-left: 12px;
-            margin-right: 12px;
-            opacity: .9;
-            cursor: default;
 
+/*active*/
+.message {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin-top: 40px;
+    margin-left: 10px;
+    text-align: center;
+    opacity: .8;
+    cursor: default;
+}
+.loginForm {
+    font-family: 'Press Start 2P', cursive;
+    width: 200px;
+    height: 25px;
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border: 4px solid black;
+    border-radius: 2px;
+    opacity: .8;
+}
+.startButton {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+    position: absolute;
+    top: 48%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+    border: 4px solid black;
+    border-radius: 2px;
+    opacity: .8;
+    cursor: pointer;
+}
+.errorText {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: rgb(191, 0, 0);
+    margin-top: 75px;
+    text-align: center;
+    cursor: default;
+    opacity: .8;
+    animation: blinker 1s infinite;
+}
+    @keyframes blinker {
+        20% {
+        opacity: 0;
         }
-        .buttonLayout {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            row-gap: 10px;
-            margin-left: 28px;
-            
-        }
-            .buttonStyle {
-                font-family: 'Press Start 2P', cursive;
-                font-size: 8px;
-                opacity: .8;
-                border: 3px solid black;
-                border-radius: 2px;
-                width: 150px;
-                height: 25px;
-                cursor: pointer;
-            }
+    }
+.text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    text-align: left;
+    margin-left: 12px;
+    margin-right: 10px;
+    cursor: default;
+}
+.subText {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    text-align: left;
+    margin-left: 12px;
+    margin-right: 12px;
+    opacity: .9;
+    cursor: default;
+
+}
+.buttonLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 10px;
+    margin-left: 28px;
+    
+}
+    .buttonStyle {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 8px;
+        opacity: .8;
+        border: 3px solid black;
+        border-radius: 2px;
+        width: 150px;
+        height: 25px;
+        cursor: pointer;
+    }

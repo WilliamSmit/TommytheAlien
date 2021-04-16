@@ -1,9 +1,10 @@
 // dependancies
 const express = require('express');
 const app = express();
-exports.app = app;
 const querystring = require('querystring');    
+const players = require("./models/mongoPlayers");
 var path = require('path');
+exports.app = app;
 
 //app info
 app.set("view engine", "pug");
@@ -16,7 +17,6 @@ const { messages, texts, backpacktexts, achievementtexts } = require("./models/s
 const { images } = require("./models/images");
 const { choices } = require("./models/choices");
 const { achievements, backpack, existingPlayers} = require("./models/storage");
-const players = require("./models/mongoPlayers");
 
 //functions
 function handling() {
@@ -27,13 +27,13 @@ function handling() {
         stomach = [];
         globalThis.allPlayers = await players.listPlayers();
         allPlayers.forEach(_id => {existingPlayers.add((_id.userName))});
-        response.render("index", {
-            message: messages.startMessage,
-            link: "/introduction",
-            showForm: true,
-            //username error message component
-            errorMessage: request.query.errorMessage,
-            errorMessageText: messages.userNameError
+            response.render("index", {
+                message: messages.startMessage,
+                link: "/introduction",
+                showForm: true,
+                //username error message component
+                errorMessage: request.query.errorMessage,
+                errorMessageText: messages.userNameError
             });
     });
 
@@ -41,8 +41,8 @@ function handling() {
         userName = request.body.userName;
         if (userName === undefined || userName === '' || userName.length > 14) {
             var query = querystring.stringify({ errorMessage: true });
-            response.redirect("/?" + query);
-        }
+                response.redirect("/?" + query);
+            }
         else if (existingPlayers.has(userName))
             response.render("index", {
                 message: messages.welcomeBackMessage + userName,
@@ -54,14 +54,14 @@ function handling() {
             })
         else if (!existingPlayers.has(userName))
             players.createPlayer(userName, 1) +
-            response.render("index", {
-                message: messages.welcomeMessage + userName,
-                text: texts.welcomeText,
-                link: "/directory",
-                twooptions: true,
-                option1: choices.ready,
-                option2: choices.nvm
-            })
+                response.render("index", {
+                    message: messages.welcomeMessage + userName,
+                    text: texts.welcomeText,
+                    link: "/directory",
+                    twooptions: true,
+                    option1: choices.ready,
+                    option2: choices.nvm
+                })
     });
     app.get("/basecamp", function (request, response) {
         //console.log(existingPlayers)
@@ -112,15 +112,15 @@ function handling() {
     });
     app.get("/gameOver", function (request, response) {
         console.log('GAME OVER');
-        response.render("index", {
-            message: messages.gameOverMessage,
-            text: whyDead,
-            achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-            backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-            link: "/directory",
-            oneoptions: true,
-            option1: choices.playAgain
-        });
+            response.render("index", {
+                message: messages.gameOverMessage,
+                text: whyDead,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                link: "/directory",
+                oneoptions: true,
+                option1: choices.playAgain
+            });
     });
     app.post("/directory", function (request, response) {
         var playerResponse = request.body.playerChoice;
@@ -261,14 +261,14 @@ function getRequests() {
         backpack.add(" wood");
         achievements.add(' fire');
             response.render("index", {
-            link: "/directory",
-            image: images.fire,
-            oneoptions: true,
-            option1: choices.returnToCamp,
-            message: messages.makeFireMessage,
-            text: texts.yesFireText,
-            achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-            backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack)
+                link: "/directory",
+                image: images.fire,
+                oneoptions: true,
+                option1: choices.returnToCamp,
+                message: messages.makeFireMessage,
+                text: texts.yesFireText,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack)
             });
             
     });
@@ -342,16 +342,16 @@ function getRequests() {
         if (achievements.has(' fire')) {
             stomach.push(' hotdog');
             backpack.add(' hotdog');
-            response.render("index", {
-                link: "/directory",
-                message: messages.makeFoodMessage,
-                text: texts.cookHotdogText,
-                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-                twooptions: true,
-                option1: choices.makeMoreFood,
-                option2: choices.returnToCamp
-            });
+                response.render("index", {
+                    link: "/directory",
+                    message: messages.makeFoodMessage,
+                    text: texts.cookHotdogText,
+                    achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                    backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                    twooptions: true,
+                    option1: choices.makeMoreFood,
+                    option2: choices.returnToCamp
+                });
         }
         else if (!achievements.has(' fire'))
             response.render("index", {
@@ -368,44 +368,44 @@ function getRequests() {
     app.get("/eatGranola", function (request, response) {
         backpack.add(' granola_bar');
         stomach.push(' granola_bar');
-        response.render("index", {
-            link: "/directory",
-            message: messages.makeFoodMessage,
-            text: texts.eatGranolaText,
-            twooptions: true,
-            option1: choices.makeMoreFood,
-            option2: choices.returnToCamp
-        });
+            response.render("index", {
+                link: "/directory",
+                message: messages.makeFoodMessage,
+                text: texts.eatGranolaText,
+                twooptions: true,
+                option1: choices.makeMoreFood,
+                option2: choices.returnToCamp
+            });
     });
     app.get("/eatBerries", function (request, response) {
         backpack.add(' berries');
         stomach.push(' berries');
-        response.render("index", {
-            link: "/directory",
-            message: messages.makeFoodMessage,
-            text: texts.eatBerriesText,
-            achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-            backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-            twooptions: true,
-            option1: choices.investigateGlow,
-            option2: choices.returnToCamp
-        });
+            response.render("index", {
+                link: "/directory",
+                message: messages.makeFoodMessage,
+                text: texts.eatBerriesText,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                twooptions: true,
+                option1: choices.investigateGlow,
+                option2: choices.returnToCamp
+            });
     });
 
     //shelter chain
     app.get("/makeShelter", function (request, response) {
         if (!achievements.has(' shelter')) {
             achievements.add(' shelter');
-            response.render("index", {
-                link: "/directory",
-                message: messages.makeShelterMessage,
-                text: texts.pitchTentText,
-                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-                twooptions: true,
-                option1: choices.goToSleep,
-                option2: choices.returnToCamp
-            });
+                response.render("index", {
+                    link: "/directory",
+                    message: messages.makeShelterMessage,
+                    text: texts.pitchTentText,
+                    achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                    backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                    twooptions: true,
+                    option1: choices.goToSleep,
+                    option2: choices.returnToCamp
+                });
         }
         else if (achievements.has(' shelter'))
             response.render("index", {
@@ -422,16 +422,16 @@ function getRequests() {
     //investigate chain=
     app.get("/investigateGlow", function (request, response) {
         achievements.add(' discover_ship');
-        response.render("index", {
-            link: "/directory",
-            message: messages.investigateGlowMessage,
-            text: texts.investigateGlowText,
-            achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-            backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-            twooptions: true,
-            option1: choices.lookInside,
-            option2: choices.returnToCamp
-        });
+            response.render("index", {
+                link: "/directory",
+                message: messages.investigateGlowMessage,
+                text: texts.investigateGlowText,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                twooptions: true,
+                option1: choices.lookInside,
+                option2: choices.returnToCamp
+            });
     });
 
     //alien meeting chain
@@ -519,8 +519,7 @@ function getRequests() {
                 response.render("index", {
                     link: "/directory",
                     message: messages.offerFoodMessage,
-                    text: `You stammer h- hi... I'm ${userName}. ${texts.offerFoodText + Array.from(backpack)
-                        + texts.stillBrokenText}`,
+                    text: `You stammer h- hi... I'm ${userName}. ${texts.offerFoodText + Array.from(backpack) + texts.stillBrokenText}`,
                     achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                     backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
                     twooptions: true,
@@ -541,15 +540,15 @@ function getRequests() {
     });
     app.get("/makeFriends", function (request, response) {
         achievements.add(' make_a_friend');
-        response.render("index", {
-            link: "/directory",
-            message: messages.thankYouMessage,
-            text: texts.bestFriendsText,
-            achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
-            backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-            oneoptions: true,
-            option1: choices.playAgain
-        });
+            response.render("index", {
+                link: "/directory",
+                message: messages.thankYouMessage,
+                text: texts.bestFriendsText,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                oneoptions: true,
+                option1: choices.playAgain
+            });
     });
 };
 
