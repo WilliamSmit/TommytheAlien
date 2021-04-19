@@ -26,6 +26,4 @@ const choices = {
     nvm: `Nevermind`
 };
 
-
-
 exports.choices = choices;

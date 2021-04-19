@@ -13,18 +13,18 @@ async function listPlayers() {
     return playerList.toArray()
 }
 
+module.exports = {
+    createPlayer,
+    listPlayers,
+}
+
 //shit that isnt working
 /*db.getCollection('players').update({"userName" : userName}, 
                                     {"userName": userName, "gamesPlayed" : +1}, 
                                      {"multi" : false, "upsert" : false}
     );*/
-
-/*async function updateGames(gamesPlayed) {
+/*
+async function updateGames(gamesPlayed) {
     let playerToUpdate = await db.collection.updateOne("players")
-    return playerToUpdate.ops????????????????????????????
+    return playerToUpdate.ops
 }*/
-
-module.exports = {
-    createPlayer,
-    listPlayers,
-}

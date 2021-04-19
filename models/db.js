@@ -18,6 +18,13 @@ function close() {
     })
 }
 
+//testing stuff
+/*function updateCollection(name) {
+    return getDb.then((db) => { return db.collection.updateOne("players")})
+}*/
+
+
+
 module.exports = {
     getDb,
     getCollection,
