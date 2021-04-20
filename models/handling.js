@@ -4,7 +4,6 @@ const { choices } = require("./choices");
 const { achievements, backpack, existingPlayers } = require("./storage");
 const { app } = require("../app");
 
-//variables
 const handling = {
     homepageRequest: app.get("/", async function (request, response) {
         whyDead = [];
@@ -78,4 +77,5 @@ const handling = {
         });
     })
 };
+
 exports.handling = handling;

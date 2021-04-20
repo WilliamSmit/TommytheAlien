@@ -267,7 +267,7 @@ const requests = {
             response.render("index", {
                 link: "/directory",
                 message: messages.fixingShipMessage,
-                text: `You stammer h- hi... ${texts.helpFixShipText}`,
+                text: `You stammer h- hi... I'm ${userName} ${texts.helpFixShipText}`,
                 achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                 backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
                 twooptions: true,
@@ -294,7 +294,7 @@ const requests = {
                 response.render("index", {
                     link: "/directory",
                     message: messages.offerFoodMessage,
-                    text: `You stammer h- hi... ${texts.offerFoodText + Array.from(backpack) + texts.stillBrokenText}`,
+                    text: `You stammer h- hi... I'm ${userName}. ${texts.offerFoodText + Array.from(backpack) + texts.stillBrokenText}`,
                     achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
                     backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
                     twooptions: true,

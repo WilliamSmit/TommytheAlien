@@ -3,7 +3,7 @@ const backpack = new Set();
 const achievements = new Set();
 const existingPlayers = new Set();
 var whyDead = [];
-let userName = undefined;
+let userName = '';
 let stomach = [];
 
 exports.backpack = backpack;
