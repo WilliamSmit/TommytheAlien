@@ -9,7 +9,7 @@ const messages = {
     lookingForWoodMessage: `Looking for wood...`,
     makeFoodMessage: `Making some food...`,
     makeShelterMessage: `Making shelter...`,
-    gameOverMessage: `Game over!`,
+    gameOverMessage: `Game over!` ,
     investigateGlowMessage: `Investigating the glow...`,
     fixingShipMessage: `Fixing Tommy's ship...`,
     lookInsideMessage: `Exploring the ship...`,
