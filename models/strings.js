@@ -83,7 +83,7 @@ const texts = {
                     famished, thanks for the snack! Any chance you could help me fix my ship?"`,
     fixedThanksText: `Tommy exclaimes "Thank you for fixing my ship! Want to be friends?"`,
     welcomeText: `First time, huh? Ready to play?`,
-    welcomebackText: `Good to see you again, Ready to play?`
+    welcomeBackText: `Good to see you again, Ready to play?`
 };
 
 exports.messages = messages;

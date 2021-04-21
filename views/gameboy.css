@@ -4,6 +4,18 @@ body {
     background-color: #d1d1d1;
 }
 /*static*/
+.bootAnimation {
+    z-index: 1000;
+    height: 300px;
+    width: 380px;
+    background-color:#8eb8bd;
+    border: 3px solid #5a7679;
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .gameboyBody {
     height: 600px;
     width: 600px;
@@ -12,7 +24,10 @@ body {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #f0b000;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
 }
     .gameboyScreen1 {
@@ -27,53 +42,53 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-        .gameboyScreen2 {
-            height:300px;
-            width: 380px;
-            background-color:#8eb8bd;
-            border: 3px solid #5a7679;
-            border-radius: 3px;
-            position: absolute;
-            top: 47%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-            .gameboyLogo {
-                height: 50%;
-                width: 75%;
+            .gameboyScreen2 {
+                height: 300px;
+                width: 380px;
+                background-color:#8eb8bd;
+                border: 3px solid #5a7679;
+                border-radius: 3px;
                 position: absolute;
-                top: 118%;
+                top: 47%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                opacity: .7;
             }
-            .nintendoLogo {
-                height: 8%;
-                width: 50%;
+                .gameboyLogo {
+                    height: 50%;
+                    width: 75%;
+                    position: absolute;
+                    top: 118%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: .7;
+                }
+                .nintendoLogo {
+                    height: 8%;
+                    width: 50%;
+                    position: absolute;
+                    top: 157%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: .3;
+                }
+                .powerIndicator {
+                    height: 10%;
+                    width: 20%;
+                    position:absolute;
+                    top: 25%;
+                    left: -12%;
+                    transform: translate(-50%, -50%);
+                    opacity: .7;
+                }
+            .bannerImage {
+                height: 20%;
+                width: 98%;
                 position: absolute;
-                top: 157%;
+                top: 12%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                opacity: .3;
+                opacity: .9;
             }
-            .powerIndicator {
-                height: 10%;
-                width: 20%;
-                position:absolute;
-                top: 25%;
-                left: -12%;
-                transform: translate(-50%, -50%);
-                opacity: .7;
-            }
-        .bannerImage {
-            height: 20%;
-            width: 98%;
-            position: absolute;
-            top: 12%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: .9;
-        }
 
 /*active*/
 .message {

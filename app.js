@@ -15,7 +15,6 @@ app.use(express.urlencoded({extended: true}));
 //imports
 const { messages, texts } = require("./models/strings");
 const { choices } = require("./models/choices");
-const { existingPlayers } = require("./models/storage");
 const { requests } = require("./models/requests");
 const { directory } = require("./models/directory");
 const { handling } = require("./models/handling");
@@ -26,26 +25,26 @@ app.post("/introduction", async function (request, response) {
     if (userName === undefined || userName === '' || userName.length > 14) {
         var query = querystring.stringify({ errorMessage: true });
             response.redirect("/?" + query);
+    }
+    else {
+        const isFirst = await players.openSession(userName)
+        const checkAll = await players.listPlayers()
+        let gameNumber = [];
+        for(var i=0; i<checkAll.length; i++) {
+            if(checkAll[i].userName === userName) {
+            gameNumber.push(checkAll[i].gamesPlayed)
+            }
         }
-    else if (existingPlayers.has(userName))
-        response.render("index", {
-            message: messages.welcomeBackMessage + userName,
-            text: texts.welcomebackText,
-            link: "/directory",
-            twooptions: true,
-            option1: choices.ready,
-            option2: choices.nvm
-        })
-    else if (!existingPlayers.has(userName))
-        players.createPlayer(userName, 1) +
         response.render("index", {
             message: messages.welcomeMessage + userName,
-            text: texts.welcomeText,
+            text: texts[isFirst? "welcomeText" : "welcomeBackText"],
+            gamesPlayedTexts: `You have played ${gameNumber} games!`,
             link: "/directory",
             twooptions: true,
             option1: choices.ready,
             option2: choices.nvm
         })
+    }
 });
 directory;
 handling;

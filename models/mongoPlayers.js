@@ -1,6 +1,6 @@
 const db = require("./db")
 
-//async mongo functions
+//unused atm
 async function createPlayer(userName, gamesPlayed) {
     let playerToCreate = {userName, gamesPlayed}
     let playerCollection = await db.getCollection("players")
@@ -13,18 +13,27 @@ async function listPlayers() {
     return playerList.toArray()
 }
 
+//async mongo functions
+async function openSession(userName) {
+    let player = null
+    let playerCollection = await db.getCollection("players")
+    let cursor = playerCollection.find({})
+    let playerList = await cursor.toArray()
+    player = playerList.find(elem=>elem.userName===userName)
+    if (player) {
+        playerCollection.updateOne(
+            { userName },
+            { $set: { gamesPlayed : player.gamesPlayed +1 }}
+        )
+    }
+    else {
+        playerCollection.insertOne({userName, gamesPlayed: 0})
+    }
+    return !player
+}
+
 module.exports = {
     createPlayer,
     listPlayers,
+    openSession
 }
-
-//shit that isnt working
-/*db.getCollection('players').update({"userName" : userName}, 
-                                    {"userName": userName, "gamesPlayed" : +1}, 
-                                     {"multi" : false, "upsert" : false}
-    );*/
-/*
-async function updateGames(gamesPlayed) {
-    let playerToUpdate = await db.collection.updateOne("players")
-    return playerToUpdate.ops
-}*/

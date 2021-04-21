@@ -1,7 +1,7 @@
 const players = require("./mongoPlayers");
 const { messages, texts, backpacktexts, achievementtexts } = require("./strings");
 const { choices } = require("./choices");
-const { achievements, backpack, existingPlayers } = require("./storage");
+const { achievements, backpack } = require("./storage");
 const { app } = require("../app");
 
 const handling = {
@@ -10,9 +10,8 @@ const handling = {
         achievements.clear();
         backpack.clear();
         stomach = [];
-        globalThis.allPlayers = await players.listPlayers();
-        allPlayers.forEach(_id => { existingPlayers.add((_id.userName)); });
         response.render("index", {
+            bootAnimation: true,
             message: messages.startMessage,
             link: "/introduction",
             showForm: true,
