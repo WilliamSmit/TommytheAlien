@@ -30,6 +30,16 @@ body {
     transform: translate(-50%, -50%);
     margin: auto;
 }
+.screenActual {
+    opacity: 1;
+    animation: fadeIn .2s;
+}
+    @keyframes fadeIn {
+        20% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+
     .gameboyScreen1 {
         height: 500px;
         width: 550px;

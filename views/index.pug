@@ -17,53 +17,54 @@ html
         if bootAnimation === true && !errorMessage  
           img(src= "https://imgur.com/eXThgFx.gif" class= "bootAnimation" id= "bootAnimationId")
           br
-        h1 
-          img(src="https://imgur.com/2Uz0h7U.png" class= "bannerImage")
-        h2(class="message")= message
-        h3(class="text")= text
-        h4(class="subText")= achievementtexts
-        h5(class="subText")= backpacktexts
-        h6(class="subText")= gamesPlayedTexts
-        if fiveoptions === true
-          form(action= link, method= "POST" class= 'buttonLayout')
-            input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
-            br    
-            input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option4 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option5 class= 'buttonStyle')
-        if fouroptions === true
-          form(action= link, method= "POST" class= 'buttonLayout')
-            input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
-            br    
-            input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option4 class= 'buttonStyle')
-        if threeoptions === true
-          form(action= link, method= "POST" class= 'buttonLayout')
-            input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
-            br    
-            input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
-            br
-            input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
-        if twooptions === true
-          form(action= link, method= "POST" class= 'buttonLayout')
-            input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
-            br    
-            input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
-        if oneoptions === true
-          form(action= link, method= "POST" class= 'buttonLayout')
-            input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
-        if showForm === true
-          form(action= link method= "POST")
-            input(type= "text" name= "userName" class= 'loginForm' autocomplete= 'off')
-            input(type= "submit" value = "start" class= 'startButton')
-        if errorMessage === 'true'
-          p(class= 'errorText')= errorMessageText
+        div(class= "screenActual")
+          h1
+            img(src="https://imgur.com/2Uz0h7U.png" class= "bannerImage")
+          h2(class="message")= message
+          h3(class="text")= text
+          h4(class="subText")= achievementtexts
+          h5(class="subText")= backpacktexts
+          h6(class="subText")= gamesPlayedTexts
+          if fiveoptions === true
+            form(action= link, method= "POST" class= 'buttonLayout')
+              input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
+              br    
+              input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option4 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option5 class= 'buttonStyle')
+          if fouroptions === true
+            form(action= link, method= "POST" class= 'buttonLayout')
+              input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
+              br    
+              input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option4 class= 'buttonStyle')
+          if threeoptions === true
+            form(action= link, method= "POST" class= 'buttonLayout')
+              input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
+              br    
+              input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
+              br
+              input(type= "submit", name= "playerChoice" value= option3 class= 'buttonStyle')
+          if twooptions === true
+            form(action= link, method= "POST" class= 'buttonLayout')
+              input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
+              br    
+              input(type= "submit", name= "playerChoice" value= option2 class= 'buttonStyle')
+          if oneoptions === true
+            form(action= link, method= "POST" class= 'buttonLayout')
+              input(type= "submit", name= "playerChoice" value= option1 class= 'buttonStyle')
+          if showForm === true
+            form(action= link method= "POST")
+              input(type= "text" name= "userName" class= 'loginForm' autocomplete= 'off')
+              input(type= "submit" value = "start" class= 'startButton')
+          if errorMessage === 'true'
+            p(class= 'errorText')= errorMessageText
 script
   include script.js
