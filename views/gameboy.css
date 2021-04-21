@@ -38,8 +38,6 @@ body {
         20% {opacity: 0;}
         100% {opacity: 1;}
     }
-
-
     .gameboyScreen1 {
         height: 500px;
         width: 550px;
@@ -81,6 +79,24 @@ body {
                     transform: translate(-50%, -50%);
                     opacity: .3;
                 }
+                .powerLight {
+                    height: 20px;
+                    width: 20px;
+                    position:absolute;
+                    top: 23%;
+                    left: -15.5%;
+                    transform: translate(-50%, -50%);
+                    opacity: .5;
+                    margin: none;
+                    z-index: 1;
+                    animation: blinker 1s infinite;
+                    /* animation-iteration-count: 1; */
+                }
+                    @keyframes blinker {
+                        0% {opacity: 1;}
+                        100% {opacticy: 0}
+                    }
+            
                 .powerIndicator {
                     height: 10%;
                     width: 20%;
@@ -90,6 +106,7 @@ body {
                     transform: translate(-50%, -50%);
                     opacity: .7;
                 }
+
             .bannerImage {
                 height: 20%;
                 width: 98%;
@@ -109,7 +126,6 @@ body {
     text-align: center;
     opacity: .9;
     cursor: default;
-    /* text-shadow: #f0b000 1px 0 10px; */
 }
 .loginForm {
     font-family: 'Press Start 2P', cursive;

@@ -2,7 +2,12 @@
 setTimeout(deleteBootAnimation, 1000)
 function deleteBootAnimation() {
   let bootAnimation = document.getElementById("bootAnimationId")
-  console.log(bootAnimation)
   if (bootAnimation) 
     bootAnimation.remove()
 }
+
+// setTimeout(turnLightOn, 1000)
+// function turnLightOn() {
+//   let powerLight = document.getElementById("powerLight")
+//     powerLight.remove()
+// }
