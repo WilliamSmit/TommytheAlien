@@ -66,13 +66,13 @@ const handling = {
     gameOverRequest: app.get("/gameOver", function (request, response) {
         console.log('GAME OVER');
         response.render("index", {
+            gameOver: true,
+            option1: choices.playAgain,
             message: messages.gameOverMessage,
             text: whyDead,
             achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
             backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
             link: "/directory",
-            oneoptions: true,
-            option1: choices.playAgain
         });
     })
 };
