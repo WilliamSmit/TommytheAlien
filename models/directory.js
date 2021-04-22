@@ -33,10 +33,10 @@ const directory = {
         else if (playerResponse === choices.returnToCamp) {
             response.redirect("/basecamp");
         }
-        else if (playerResponse === choices.makeMoreFood && stomach.length <= 6) {
+        else if (playerResponse === choices.makeMoreFood && stomach.length <= 4) {
             response.redirect("/makeFood");
         }
-        else if (playerResponse === choices.makeMoreFood && stomach.length > 6) {
+        else if (playerResponse === choices.makeMoreFood && stomach.length > 4) {
             whyDead.push(`Who do you think you are, Abdu? You've eaten too much and died from the complications...`);
             response.redirect("/gameOver");
         }
