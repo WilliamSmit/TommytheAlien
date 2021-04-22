@@ -236,6 +236,18 @@ const requests = {
                 option2: choices.offerFood,
                 option3: choices.runFromAlien
             });
+        else if (achievements.has(' feed_Tommy')) //changes made here
+            response.render("index", {
+                link: "/directory",
+                message: messages.lookInsideMessage,
+                text: texts.alreadyMetText,
+                achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
+                backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
+                threeoptions: true,
+                option1: choices.attackTheAlien,
+                option2: choices.helpFixShip,
+                option3: choices.runFromAlien
+            })
         else if (achievements.has(' meet_Tommy'))
             response.render("index", {
                 link: "/directory",
