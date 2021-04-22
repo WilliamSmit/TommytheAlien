@@ -73,8 +73,12 @@ const directory = {
         else if (playerResponse === choices.helpFixShip) {
             response.redirect("/helpFixShip");
         }
-        else if (playerResponse === choices.offerFood) {
-            response.redirect("/offerFood");
+        else if (playerResponse === choices.offerFood && backpack.has(' berries')) {
+            whyDead.push(`They don't have berries on Tommy's home planet, looks like he's allergic... what have you done...`)
+            response.redirect("/gameOver");
+        }
+        else if (playerResponse === choices.offerFood && !backpack.has(' berries')) {
+            response.redirect("offerFood");
         }
         else if (playerResponse === choices.goBackToShip) {
             response.redirect("/investigateGlow");

@@ -277,8 +277,7 @@ const requests = {
     }),
     offerFoodRequest: app.get("/offerFood", function (request, response) {
         achievements.add(' meet_Tommy');
-        if (achievements.has(' fix_ship') && (backpack.has(' berries') || backpack.has(' hotdog') ||
-            backpack.has(' granola_bar')))
+        if (achievements.has(' fix_ship') && (backpack.has(' berries') || backpack.has(' hotdog') || backpack.has(' granola_bar')))
             achievements.add(' feed_Tommy') +
                 response.render("index", {
                     link: "/directory",
