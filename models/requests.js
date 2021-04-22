@@ -332,7 +332,7 @@ const requests = {
             text: texts.bestFriendsText,
             achievementtexts: achievementtexts.achievementsContentsSubtext + Array.from(achievements),
             backpacktexts: backpacktexts.backpackContentsSubtext + Array.from(backpack),
-            oneoptions: true,
+            gameOver: true,
             option1: choices.playAgain
         });
     }) 
